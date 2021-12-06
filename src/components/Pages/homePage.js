@@ -1,4 +1,5 @@
 
+import { Redirect } from "../Router/Router";
 
 
 /**
@@ -27,23 +28,31 @@
      </div> 
  </div>
  </div>`;
- const HomePage = () => { 
+ function HomePage() {
+    // Deal with your NewPage content here
     const pageDiv = document.querySelector("#page");
+    pageDiv.innerHTML = test;
+    // create a login form
+    const btnSalon = document.createElement("input");
+    btnSalon.value = "Go back to Salon from Home";
+    // Example on how to use Bootstrap to style a Button
+    btnSalon.className = "btn btn-secondary mt-3";
+    // Example on how to add an event handler : when the button is clicked, redirect
+    // to the HomePage
+    btnSalon.addEventListener("click", () => {
+      Redirect("/salon");
+    });
+    pageDiv.appendChild(btnSalon);
 
-     // Deal with your NewPage content here
-  pageDiv.innerHTML = test;
-  // create a login form
-  const submit = document.createElement("input");
-  submit.value = "Go back to Salon from Homepage";
-  // Example on how to use Bootstrap to style a Button
-  submit.className = "btn btn-secondary mt-3";
-  // Example on how to add an event handler : when the button is clicked, redirect
-  // to the HomePage
-  submit.addEventListener("click", () => {
-    Redirect("/");
-  });
-  pageDiv.appendChild(submit);
-  };
+    const register = document.createElement("input");
+    register.value="Créer un compte";
+    register.className="btn btn-secondary mt-3";
+    register.addEventListener("click",() => {
+        Redirect("/register");
+    });
+    pageDiv.appendChild(register);
+
+  }
   
   export default HomePage;
   

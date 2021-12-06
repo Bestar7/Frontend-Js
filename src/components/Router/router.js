@@ -1,10 +1,12 @@
 import HomePage from "../Pages/HomePage";
-import  Salon from "../Pages/Salon";
+import Salon from "../Pages/Salon";
+import Register from "../Pages/Register";
 
 // Configure your routes here
 const routes = {
   "/": HomePage,
   "/salon": Salon,
+  "/register" : Register,
 };
 
 /**

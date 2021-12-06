@@ -1,10 +1,8 @@
-import Navbar from "./components/NavBar/NavBar.js";
-import HomePage from "./components/Pages/HomePage.js";
-import {Router} from "./Components/Router/Router.js";
+import Navbar from "./components/NavBar/NavBar";
+import {Router} from "./Components/Router/Router";
 
 
 
-Navbar();
 
 Router();
 
