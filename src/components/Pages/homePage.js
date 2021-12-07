@@ -24,6 +24,7 @@ import { Redirect } from "../Router/Router";
           <label id="codesalon" > Rejoindre un salon : </label>
          <input type = "text" placeholder="code salon" name="codeSalon"/>
          <a href="/joinsalon.html" class="btn"> Joindre salon</a>
+         <button type="button" class="btn btn-danger homepage_play_button mt-5" href="#" data-uri="/salon">Jouer</button>
          </div>
      </div> 
  </div>
