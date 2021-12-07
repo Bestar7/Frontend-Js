@@ -50,16 +50,17 @@ let liste=``;
 
 
 function Salon() {
-  // Deal with your NewPage content here
+  // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
+
   pageDiv.innerHTML = pageHtml+form+ liste;
-  // create a login form
-  const submit = document.createElement("input");
-  submit.value = "Go back to HomePage from salon";
-  // Example on how to use Bootstrap to style a Button
-  submit.className = "btn btn-secondary mt-3";
-  // Example on how to add an event handler : when the button is clicked, redirect
-  // to the HomePage
+
+  // CREATION BOUTTONS
+  const submit = document.createElement("button");
+  submit.innerHTML = "Go back to HomePage from salon";
+  submit.className = "btn btn-primary";
+
+  // COMPORTEMENT DES BOUTTONS
   submit.addEventListener("click", () => {
     Redirect("/");
   });

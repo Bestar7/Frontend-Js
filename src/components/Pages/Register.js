@@ -5,33 +5,31 @@
  import { Redirect } from "../Router/Router";
 
 const Register = () => { 
+  // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
-
   pageDiv.innerHTML = "register";
 
-  // create a login form
-  const valider = document.createElement("input");
-
-  const annuler = document.createElement("input");
-  annuler.value = "Annuler";
-  valider.value="Valider"
-  // Example on how to use Bootstrap to style a Button
-  annuler.className = "btn btn-secondary mt-3";
-  valider.className = "btn btn-secondary mt-3";
-  // Example on how to add an event handler : when the button is clicked, redirect
-  // to the HomePage
+  // CREATION BOUTTONS
+  const valider = document.createElement("button");
+  const annuler = document.createElement("button");
+  valider.innerHTML = "Valider";
+  annuler.innerHTML = "Annuler";
+  valider.className = "btn btn-primary";
+  annuler.className = "btn btn-primary";
+  
+  // COMPORTEMENT DES BOUTTONS
   valider.addEventListener("click", onRegister);
-   
   annuler.addEventListener("click", () => {
     Redirect("/");
   });
   pageDiv.appendChild(annuler);
   pageDiv.appendChild(valider);
 };
+
+
+
 let username ="";
 let password="";
-
-
 const onRegister = (e) => {
     e.preventDefault();
     let user = {

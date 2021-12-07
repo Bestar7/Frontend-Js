@@ -21,36 +21,42 @@ import { Redirect } from "../Router/Router";
      <div id="newSalon">
      <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>     </div>
       <div id="joinSalon">
+<<<<<<< HEAD
           <label id="codesalon" > Rejoindre un salon : </label>
          <input type = "text" placeholder="code salon" name="codeSalon"/>
          <a href="/joinsalon.html" class="btn"> Joindre salon</a>
          <button type="button" class="btn btn-danger homepage_play_button mt-5" href="#" data-uri="/salon">Jouer</button>
          </div>
+=======
+        <label id="codesalon" > Rejoindre un salon : </label>
+        <input type = "text" placeholder="code salon" name="codeSalon"/>
+        <a href="/joinsalon.html" class="btn"> Joindre salon</a>
+        </div>
+>>>>>>> 2ef460a28d91bdfae765080c967c6ca5d37ac9a7
      </div> 
  </div>
  </div>`;
- function HomePage() {
-    // Deal with your NewPage content here
+function HomePage() {
+    // SET BASIC PAGE
     const pageDiv = document.querySelector("#page");
     pageDiv.innerHTML = test;
-    // create a login form
-    const btnSalon = document.createElement("input");
-    btnSalon.value = "Go back to Salon from Home";
-    // Example on how to use Bootstrap to style a Button
-    btnSalon.className = "btn btn-secondary mt-3";
-    // Example on how to add an event handler : when the button is clicked, redirect
-    // to the HomePage
+
+    // CREATION BOUTTONS
+    const btnSalon = document.createElement("button");
+    const register = document.createElement("button");
+    btnSalon.innerHTML = "Go back to Salon from Home";
+    register.innerHTML = "Créer un compte";
+    btnSalon.className = "btn btn-primary";
+    register.className = "btn btn-primary";
+
+    // COMPORTEMENT DES BOUTTONS
     btnSalon.addEventListener("click", () => {
       Redirect("/salon");
     });
-    pageDiv.appendChild(btnSalon);
-
-    const register = document.createElement("input");
-    register.value="Créer un compte";
-    register.className="btn btn-secondary mt-3";
     register.addEventListener("click",() => {
         Redirect("/register");
     });
+    pageDiv.appendChild(btnSalon);
     pageDiv.appendChild(register);
 
   }
