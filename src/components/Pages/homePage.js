@@ -21,10 +21,18 @@ import { Redirect } from "../Router/Router";
      <div id="newSalon">
      <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>     </div>
       <div id="joinSalon">
+<<<<<<< HEAD
+          <label id="codesalon" > Rejoindre un salon : </label>
+         <input type = "text" placeholder="code salon" name="codeSalon"/>
+         <a href="/joinsalon.html" class="btn"> Joindre salon</a>
+         <button type="button" class="btn btn-danger homepage_play_button mt-5" href="#" data-uri="/salon">Jouer</button>
+         </div>
+=======
         <label id="codesalon" > Rejoindre un salon : </label>
         <input type = "text" placeholder="code salon" name="codeSalon"/>
         <a href="/joinsalon.html" class="btn"> Joindre salon</a>
         </div>
+>>>>>>> 2ef460a28d91bdfae765080c967c6ca5d37ac9a7
      </div> 
  </div>
  </div>`;
