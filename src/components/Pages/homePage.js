@@ -33,7 +33,7 @@ function HomePage() {
     const pageDiv = document.querySelector("#page");
     pageDiv.innerHTML = test;
 
-    // CREATION BOUTTONS
+    // CREATE BUTTONS
     const btnSalon = document.createElement("button");
     const register = document.createElement("button");
     btnSalon.innerHTML = "Go back to Salon from Home";
@@ -41,7 +41,7 @@ function HomePage() {
     btnSalon.className = "btn btn-primary";
     register.className = "btn btn-primary";
 
-    // COMPORTEMENT DES BOUTTONS
+    // COMPORTEMENT DES BUTTONS
     btnSalon.addEventListener("click", () => {
       Redirect("/salon");
     });

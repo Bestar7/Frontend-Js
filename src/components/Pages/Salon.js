@@ -12,12 +12,12 @@ function Salon() {
   const pageDiv = document.querySelector("#page");
   pageDiv.innerHTML = "hey";
 
-  // CREATION BOUTTONS
+  // CREATE BUTTON
   const submit = document.createElement("button");
   submit.innerHTML = "Go back to HomePage from salon";
   submit.className = "btn btn-primary";
 
-  // COMPORTEMENT DES BOUTTONS
+  // COMPORTEMENT DES BUTTONS
   submit.addEventListener("click", () => {
     Redirect("/");
   });
