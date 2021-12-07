@@ -9,25 +9,42 @@ const Register = () => {
   const pageDiv = document.querySelector("#page");
   pageDiv.innerHTML = "register";
 
-  // CREATION BOUTTONS
-  const valider = document.createElement("button");
+  // CREATE FORM
+  const formRegister = document.createElement("form");
+  formRegister.action = ""; // TODO
+  // add email
+  const email = document.createElement("input");
+  email.setAttribute('type',"text");
+  email.setAttribute('name',"email");
+  formRegister.appendChild(email);
+
+  //add password
+  const password = document.createElement("input");
+  password.setAttribute('type',"text");
+  password.setAttribute('name',"password");
+  formRegister.appendChild(password);
+
+  //add submit
+  const creerCompte = document.createElement("input");
+  creerCompte.setAttribute('type',"submit");
+  creerCompte.setAttribute('value',"Creer un compte");
+  formRegister.appendChild(creerCompte);
+
+  //add cancel
   const annuler = document.createElement("button");
-  valider.innerHTML = "Valider";
   annuler.innerHTML = "Annuler";
-  valider.className = "btn btn-primary";
-  annuler.className = "btn btn-primary";
-  
-  // COMPORTEMENT DES BOUTTONS
-  valider.addEventListener("click", onRegister);
   annuler.addEventListener("click", () => {
-    Redirect("/");
+    Redirect("/"); // TODO
   });
-  pageDiv.appendChild(annuler);
-  pageDiv.appendChild(valider);
+  formRegister.appendChild(annuler);
+  
+  // append form
+  pageDiv.appendChild(formRegister);
 };
 
 
 
+////  TODO UTILISER ET VERIFIER CECI
 let username ="";
 let password="";
 const onRegister = (e) => {
