@@ -7,9 +7,8 @@ import { Redirect } from "../Router/Router";
 * Render the HomePage
 */
 let test=`
-<div class="container">
-  <div id="home" class="">
-
+<div class="container d-flex justify-content-center">
+  <div id="home" class="flex-column flex-center">
     <div id="connexion">
       <form id="form">
         <label id="email"> </label>
@@ -30,7 +29,7 @@ let test=`
         </form>
     </div>
     <br>
-    
+
     <div id="joinSalon">
       <button type="button" class="btn btn-primary" href="#" data-uri="/salon">Jouer</button>
     </div>
