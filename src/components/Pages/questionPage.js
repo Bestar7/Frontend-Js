@@ -1,4 +1,5 @@
 import { Redirect } from "../Router/Router";
+import Quizz from "../Domain/Quizz";
 
 function QuestionPage() {
     document.title = 'Questions';
