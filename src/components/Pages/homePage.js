@@ -8,34 +8,43 @@ import { Redirect } from "../Router/Router";
 */
 let test=`
 <div class="container">
-  <div id="home" class="flex-column flex-center">
-    <h1> ZE QUESTION</h1>
-    <a href="/register.html" class="btn"> Creer une compte</a>
-    
+  <div id="home" class="">
+
     <div id="connexion">
       <form id="form">
         <label id="email"> </label>
         <input type="email" placeholder="email" name="email" type="text"/>
-        <label id="password" ></label>
-        <input type="password" placeholder="Mot de passe " name="password"/>
-        <a href="/login.html" class="btn"> Se connecter</a>
+        <label id="password"></label>
+        <input type="password" placeholder="Mot de passe" name="password"/>
+        <a href="/login.html" class="btn btn-primary">Se connecter</a>
+        <a href="/register.html" class="btn btn-primary">Creer une compte</a>
       </form>
     </div>
- 
+    <br>
+
+    <div id="joinSalon">
+      <form>
+        <input type = "text" placeholder="code salon" name="codeSalon"/>
+        <a href="/joinsalon.html" class="btn btn-primary"> Joindre salon</a>
+        </div>
+        </form>
+    </div>
+    <br>
+    
+    <div id="joinSalon">
+      <button type="button" class="btn btn-primary" href="#" data-uri="/salon">Jouer</button>
+    </div>
+    <br>
+
     <div id="newSalon">
            
     </div>
- 
-    <div id="joinSalon">
-      <form>
-        <label id="codesalon"> Rejoindre un salon : </label>
-        <input type = "text" placeholder="code salon" name="codeSalon"/>
-        <a href="/joinsalon.html" class="btn btn-primary"> Joindre salon</a>
-        <button type="button" class="btn btn-primary" href="#" data-uri="/salon">Jouer</button>
-        </div>
-        </form>
-    </div> 
- 
+    <br>
+
+    
+
+    
+    
   </div>
 </div>`;
 function HomePage() {
