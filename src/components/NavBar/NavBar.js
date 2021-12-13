@@ -16,7 +16,7 @@ const Navbar = () => {
   let navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
+          <a class="navbar-brand" href="#" data-uri="/">ZE QUESTION</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -31,10 +31,10 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
+                <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>
+                <a class="nav-link" href="#" data-uri="/salon">Questions</a>
               </li>                        
             </ul>
           </div>
