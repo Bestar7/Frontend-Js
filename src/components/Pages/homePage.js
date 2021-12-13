@@ -7,7 +7,7 @@ import { Redirect } from "../Router/Router";
 * Render the HomePage
 */
 let test=`
-<div class="container">
+<div class="d-flex justify-content-center">
   <div id="home" class="flex-column flex-center">
     <h1> ZE QUESTION</h1>
     <a href="/register.html" class="btn"> Creer une compte</a>
