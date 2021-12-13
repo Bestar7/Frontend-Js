@@ -25,8 +25,14 @@ function setBasicPage() {
 }
 
 function setLinks(){
-  const newSalon = document.querySelector("#form").getElementsByTagName("button");
-  newSalon[0].addEventListener("click", () => {
+  const pret = document.querySelector("#createAccount").getElementsByTagName("form")[0];
+  pret.addEventListener("submit", (f) => {
+    f.preventDefault();
+    console.log("pret");
+  });
+  
+  const annuler = document.querySelector("#form").getElementsByTagName("button")[0];
+  annuler.addEventListener("click", () => {
     Redirect("/");
   });
 }
