@@ -19,7 +19,7 @@ let connexionHTML =
 <br>`;
 
 let joinSalonHTML = 
-`<div id="joinSalon" class="flex-center">
+`<div id="joinSalon">
   <form>
     <input type = "text" placeholder="code salon" name="codeSalon"/>
     <input type="submit" class="btn btn-primary" value="Joindre salon"></input>    <!--TODO-->
@@ -28,13 +28,13 @@ let joinSalonHTML =
 <br>`;
 
 let newSalonHTML = 
-`<div id="newSalon" class="flex-center">
+`<div id="newSalon">
   <button type="button" class="btn btn-primary" href="#" data-uri="/salonModo">Creer un salon</button>
 </div>
 <br>`;
 
 let jouerHTML = 
-`<div id="jouer" class="flex-center">
+`<div id="jouer">
   <button type="button" class="btn btn-primary">Prêt</button>    <!--TODO-->
 </div>
 <br>`;
