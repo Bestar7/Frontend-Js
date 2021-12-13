@@ -2,7 +2,7 @@ import { Redirect } from "../Router/Router";
 
 const connexionHTML = 
 `<div id="connexion">
-  <form id="form">
+  <form>
     <input type="email" placeholder="email" name="email" type="text"/>
     <input type="password" placeholder="Mot de passe" name="password"/>
     <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO-->
@@ -14,8 +14,8 @@ const connexionHTML =
 const joinSalonHTML = 
 `<div id="joinSalon">
   <form>
-    <input type = "text" placeholder="code salon" name="codeSalon"/>
-    <input type="submit" class="btn btn-primary" value="Joindre salon"></input>    <!--TODO-->
+    <input type="text" placeholder="code salon" name="codeSalon"/>
+    <input type="submit" class="btn btn-primary" value="Joindre salon">    <!--TODO-->
   </form>
 </div>
 <br>`;
@@ -45,15 +45,33 @@ function setBasicPage() {
 }
 
 function setLinks(){
-  const creerCompte = document.querySelector("#connexion").getElementsByTagName("a");
-  creerCompte[0].addEventListener("click", () => {
+  //connexionHTML
+  const connexion = document.querySelector("#connexion").getElementsByTagName("form")[0];
+  connexion.addEventListener("submit", (f) => {
+    f.preventDefault();
+    console.log("connexion");
+  });
+  
+  const creerCompte = document.querySelector("#connexion").getElementsByTagName("a")[0];
+  creerCompte.addEventListener("click", () => {
     Redirect("/register");
   });
+  
+  //joinSalonHTML
+  const joinSalon = document.querySelector("#joinSalon").getElementsByTagName("form")[0];
+  joinSalon.addEventListener("submit", (f) => {
+    f.preventDefault();
+    console.log("joinSalon");
+  });
 
-  const newSalon = document.querySelector("#newSalon").getElementsByTagName("button");
-  newSalon[0].addEventListener("click", () => {
+  //newSalonHTML
+  const newSalon = document.querySelector("#newSalon").getElementsByTagName("button")[0];
+  newSalon.addEventListener("click", () => {
     creerSalon();
   });
+
+  //jouerHTML
+
 }
 
 function creerSalon(){
@@ -62,5 +80,5 @@ function creerSalon(){
   }
   Redirect("/salonModo");
 }
-  
+
 export default HomePage;
