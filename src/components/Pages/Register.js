@@ -23,8 +23,14 @@ function setBasicPage(){
 }
 
 function setLinks(){
-  const creerCompte = document.querySelector("#createAccount").getElementsByTagName("button");
-  creerCompte[0].addEventListener("click", () => {
+  const createAccount = document.querySelector("#createAccount").getElementsByTagName("form")[0];
+  createAccount.addEventListener("submit", (f) => {
+    f.preventDefault();
+    console.log("createAccount");
+  });
+
+  const annuler = document.querySelector("#createAccount").getElementsByTagName("button")[0];
+  annuler.addEventListener("click", () => {
     Redirect("/");
   });
 }
