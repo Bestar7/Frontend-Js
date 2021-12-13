@@ -5,12 +5,12 @@ class Question {
         this.choices = choices;
         this.answer = answer;
     }
-}
-GoodAnswer(choice);{
-    if (choice === this.answer) return true;
-    return false;
+    GoodAnswer(choice){
+        return choice === this.answer;
+    }
 }
 
+// create questions 
 let questions = [
     new Question (
         "Quelle est la pils la plus consommée en Belgique ?",
@@ -30,17 +30,31 @@ let questions = [
         "Jupiler")
 
 ];
-
+console.log(questions);
 class Quizz{
     constructor(questions){
-        this.questions = Question
+        this.questions = questions
         this.score = 0;
+        this.afond = 0;
         this.currentQuestion = 0;
     }
     getCurrentQuestion(){
-        return this.Question[this.Question];
+        return this.questions[this.currentQuestion];
     }
-    /*guess(answer){
-        if (this.getCurrentQuestion().GoodAnswer(answer))
-    }*/
+    guess(answer){
+        if (this.getCurrentQuestion().GoodAnswer){
+            score++;
+        }else{
+            afond++;
+        }
+    }
+    endQuizz(){
+        return this.currentQuestion >= questions.length;
+    }
+
 }
+
+// create quizz
+let quizz = new Quizz(questions)
+
+console.log(quizz);
