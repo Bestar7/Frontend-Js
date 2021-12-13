@@ -1,6 +1,5 @@
 
-import { Button } from "bootstrap";
-import { Redirect } from "../Router/Router";
+import { Button as BootstrapButton} from "bootstrap";
 
 
 /**
@@ -16,7 +15,7 @@ let test=`
         <input type="email" placeholder="email" name="email" type="text"/>
         <input type="password" placeholder="Mot de passe" name="password"/>
         <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO btn type submit-->
-        <a href="#" class="btn btn-primary" data-uri="/register">Creer une compte</a>
+        <a id="creerCompte" class="btn btn-primary" data-uri="/register">Creer une compte</a>
       </form>
     </div>
     <br>
@@ -43,10 +42,24 @@ let test=`
 </div>`;
 
 function HomePage() {
-    document.title = 'Ze Question';
-    // SET BASIC PAGE
-    const pageDiv = document.querySelector("#page");
-    pageDiv.innerHTML = test;
-  }
+  setPage();
+  await ok();
+    
+}
+
+async function setPage() {
+  document.title = 'Ze Question';
+  // SET BASIC PAGE
+  const pageDiv = document.querySelector("#page");
+  pageDiv.innerHTML = test;
+  console.log("set page done");
+}
+
+function ok(){
+  const creerCompte = document.querySelector("#creerCompte")
+  creerCompte.addEventListener("click", () => {
+    Redirect("/register");
+  });
+}
   
   export default HomePage;
