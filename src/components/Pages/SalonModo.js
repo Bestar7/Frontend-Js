@@ -48,6 +48,7 @@ let liste=``;
 
 
 function SalonModo() {
+  document.title = 'SalonAdmin';
   
 }
 

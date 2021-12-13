@@ -1,5 +1,7 @@
 import { Redirect } from "../Router/Router";
 
-function ScorePage() {}
+function ScorePage() {
+    document.title = 'Score';
+}
 
 export default ScorePage;

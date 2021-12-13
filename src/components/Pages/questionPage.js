@@ -1,5 +1,7 @@
 import { Redirect } from "../Router/Router";
 
-function QuestionPage() {}
+function QuestionPage() {
+    document.title = 'Question';
+}
 
 export default QuestionPage;

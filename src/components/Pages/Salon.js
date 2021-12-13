@@ -16,7 +16,8 @@ import { Redirect } from "../Router/Router";
   </div>
   `
 
-  let form=`<div class="row mx-0 text-center">
+  let form=
+  `<div class="row mx-0 text-center">
   <div class="col-md-4"></div>
   <div class="col-md-4 mt-2">
       <h1 id="form" class="display-2 mb-2 mb-md-5 text-center">Form : </h1>
@@ -50,6 +51,7 @@ let liste=``;
 
 
 function Salon() {
+  document.title = 'Salon';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
 

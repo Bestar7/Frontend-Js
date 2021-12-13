@@ -5,6 +5,7 @@
  import { Redirect } from "../Router/Router";
 
 const Register = () => { 
+  document.title = 'Register';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
   pageDiv.innerHTML = "register";
