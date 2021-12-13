@@ -15,7 +15,7 @@ const Navbar = () => {
   const navbarWrapper = document.querySelector("#navbarWrapper");
   let navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">,pm 
+        <div class="container-fluid">
           <a class="navbar-brand" href="#" data-uri="/">Ze Question</a>
           <button
             class="navbar-toggler"
