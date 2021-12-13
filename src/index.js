@@ -6,5 +6,7 @@ import {Router} from "./Components/Router/Router";
 
 Router();
 
+Navbar();
+
 
 
