@@ -1,13 +1,6 @@
 import { Redirect } from "../Router/Router";
 
-import { Button as BootstrapButton} from "bootstrap";
-
-
-/**
-* 
-* Render the HomePage
-*/
-let connexionHTML = 
+const connexionHTML = 
 `<div id="connexion">
   <form id="form">
     <input type="email" placeholder="email" name="email" type="text"/>
@@ -18,7 +11,7 @@ let connexionHTML =
 </div>
 <br>`;
 
-let joinSalonHTML = 
+const joinSalonHTML = 
 `<div id="joinSalon">
   <form>
     <input type = "text" placeholder="code salon" name="codeSalon"/>
@@ -27,13 +20,13 @@ let joinSalonHTML =
 </div>
 <br>`;
 
-let newSalonHTML = 
+const newSalonHTML = 
 `<div id="newSalon">
   <button type="button" class="btn btn-primary" href="#" data-uri="/salonModo">Creer un salon</button>
 </div>
 <br>`;
 
-let jouerHTML = 
+const jouerHTML = 
 `<div id="jouer">
   <button type="button" class="btn btn-primary">Prêt</button>    <!--TODO-->
 </div>
@@ -49,7 +42,6 @@ function setBasicPage() {
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
   pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML + jouerHTML;
-  console.log("set page done");
 }
 
 function setLinks(){
@@ -62,8 +54,6 @@ function setLinks(){
   newSalon[0].addEventListener("click", () => {
     creerSalon();
   });
-
-  console.log("setLinks done");
 }
 
 function creerSalon(){
