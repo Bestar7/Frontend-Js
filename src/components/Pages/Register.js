@@ -1,53 +1,39 @@
-/**
- * Render the HomePage
- */
+import { Redirect } from "../Router/Router";
 
- import { Redirect } from "../Router/Router";
+const createAccountHTML = 
+`<div id="createAccount">
+  <form>
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Mot de passe">
+    <input type="submit" class="btn btn-primary" value="Prêt">
+    <button type="button" class="btn btn-primary" href="#" data-uri="/">Annuler</button>
+  </form>
+</div>`;
 
-const Register = () => { 
+function Register(){
+  setBasicPage();
+  setLinks();
+};
+
+function setBasicPage(){
   document.title = 'Register';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
-  pageDiv.innerHTML = "register";
+  pageDiv.innerHTML = createAccountHTML;
+}
 
-  // CREATE FORM
-  const formRegister = document.createElement("form");
-  formRegister.action = ""; // TODO
-  // add email
-  const email = document.createElement("input");
-  email.setAttribute('type',"text");
-  email.setAttribute('name',"email");
-  formRegister.appendChild(email);
-
-  //add password
-  const password = document.createElement("input");
-  password.setAttribute('type',"text");
-  password.setAttribute('name',"password");
-  formRegister.appendChild(password);
-
-  //add submit
-  const creerCompte = document.createElement("input");
-  creerCompte.setAttribute('type',"submit");
-  creerCompte.setAttribute('value',"Creer un compte");
-  formRegister.appendChild(creerCompte);
-
-  //add cancel
-  const annuler = document.createElement("button");
-  annuler.innerHTML = "Annuler";
-  annuler.addEventListener("click", () => {
-    Redirect("/"); // TODO
+function setLinks(){
+  const creerCompte = document.querySelector("#createAccount").getElementsByTagName("button");
+  creerCompte[0].addEventListener("click", () => {
+    Redirect("/");
   });
-  formRegister.appendChild(annuler);
-  
-  // append form
-  pageDiv.appendChild(formRegister);
-};
+}
 
 
 
 ////  TODO UTILISER ET VERIFIER CECI
-let username ="";
-let password="";
+let username = "";
+let password = "";
 const onRegister = (e) => {
     e.preventDefault();
     let user = {
@@ -68,4 +54,5 @@ const onRegister = (e) => {
         .then((data) => onUserRegistration(data))
         .catch((err) => onError(err));
 };
+
 export default Register;

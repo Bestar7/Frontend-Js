@@ -31,11 +31,16 @@ const Navbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link" href="#" data-uri="/salon">Creer Salon</a>
               </li>
               <li class="nav-item">
               <a class="nav-link" href="#" data-uri="/questionPage">Questions</a>
             </li>                 
+=======
+                <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>
+              </li>                        
+>>>>>>> debeb329e3a3be42c6a2aeaf0ca6c18cbd04ca39
             </ul>
           </div>
         </div>
