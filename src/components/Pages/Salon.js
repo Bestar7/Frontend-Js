@@ -4,7 +4,7 @@ let idSalon;
 
 const formHTML = 
 `<div id="form">
-  <form method="post">
+  <form>
     <legend>Veuillez entrer votre pseudo pour cette partie</legend>
     <input type="text" name="pseudo" placeholder="Pseudo">
     <input type="submit" class="btn btn-primary" value="Prêt">
@@ -25,8 +25,14 @@ function setBasicPage() {
 }
 
 function setLinks(){
-  const newSalon = document.querySelector("#form").getElementsByTagName("button");
-  newSalon[0].addEventListener("click", () => {
+  const pret = document.querySelector("#form").getElementsByTagName("form")[0];
+  pret.addEventListener("submit", (f) => {
+    f.preventDefault();
+    console.log("pret");
+  });
+  
+  const annuler = document.querySelector("#form").getElementsByTagName("button")[0];
+  annuler.addEventListener("click", () => {
     Redirect("/");
   });
 }

@@ -4,7 +4,7 @@ let idSalon;
 
 const formHTML = 
 `<div id="form">
-  <form method="post">
+  <form>
     <legend>Veuillez entrer votre pseudo pour cette partie</legend>
     <input type="text" name="pseudo" placeholder="Pseudo">
     <input type="submit" class="btn btn-primary" value="Prêt">
@@ -25,7 +25,7 @@ function setBasicPage() {
 }
 
 function setLinks(){
-  const pret = document.querySelector("#createAccount").getElementsByTagName("form")[0];
+  const pret = document.querySelector("#form").getElementsByTagName("form")[0];
   pret.addEventListener("submit", (f) => {
     f.preventDefault();
     console.log("pret");

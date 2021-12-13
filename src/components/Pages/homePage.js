@@ -26,12 +26,6 @@ const newSalonHTML =
 </div>
 <br>`;
 
-const jouerHTML = 
-`<div id="jouer">
-  <button type="button" class="btn btn-primary">Prêt</button>    <!--TODO-->
-</div>
-<br>`;
-
 function HomePage() {
   setBasicPage();
   setLinks();
@@ -41,7 +35,7 @@ function setBasicPage() {
   document.title = 'Ze Question';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
-  pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML + jouerHTML;
+  pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML;
 }
 
 function setLinks(){
@@ -51,7 +45,7 @@ function setLinks(){
     f.preventDefault();
     console.log("connexion");
   });
-  
+
   const creerCompte = document.querySelector("#connexion").getElementsByTagName("a")[0];
   creerCompte.addEventListener("click", () => {
     Redirect("/register");
@@ -69,9 +63,6 @@ function setLinks(){
   newSalon.addEventListener("click", () => {
     creerSalon();
   });
-
-  //jouerHTML
-
 }
 
 function creerSalon(){
