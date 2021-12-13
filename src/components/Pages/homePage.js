@@ -15,8 +15,8 @@ let test=`
       <form id="form">
         <input type="email" placeholder="email" name="email" type="text"/>
         <input type="password" placeholder="Mot de passe" name="password"/>
-        <a href="/login.html" class="btn btn-primary">Se connecter</a>    <!--TODO btn type submit-->
-        <a href="/register.html" class="btn btn-primary">Creer une compte</a>
+        <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO btn type submit-->
+        <a href="#" class="btn btn-primary" data-uri="/register">Creer une compte</a>
       </form>
     </div>
     <br>
@@ -24,7 +24,7 @@ let test=`
     <div id="joinSalon" class="flex-center">
       <form>
         <input type = "text" placeholder="code salon" name="codeSalon"/>
-        <a href="/joinsalon.html" class="btn btn-primary"> Joindre salon</a>    <!--TODO btn type submit-->
+        <input type="submit" class="btn btn-primary" value="Joindre salon"></input>   <!--TODO btn type submit-->
       </form>
     </div>
     <br>
