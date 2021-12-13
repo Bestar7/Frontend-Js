@@ -1,3 +1,4 @@
+import { Redirect } from "../Router/Router";
 
 import { Button as BootstrapButton} from "bootstrap";
 
@@ -14,8 +15,8 @@ let test=`
       <form id="form">
         <input type="email" placeholder="email" name="email" type="text"/>
         <input type="password" placeholder="Mot de passe" name="password"/>
-        <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO btn type submit-->
-        <a id="creerCompte" class="btn btn-primary" data-uri="/register">Creer une compte</a>
+        <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO-->
+        <a class="btn btn-primary" data-uri="/register">Creer une compte</a>
       </form>
     </div>
     <br>
@@ -23,18 +24,18 @@ let test=`
     <div id="joinSalon" class="flex-center">
       <form>
         <input type = "text" placeholder="code salon" name="codeSalon"/>
-        <input type="submit" class="btn btn-primary" value="Joindre salon"></input>   <!--TODO btn type submit-->
+        <input type="submit" class="btn btn-primary" value="Joindre salon"></input>    <!--TODO-->
       </form>
     </div>
     <br>
 
     <div id="newSalon" class="flex-center">
-      <button type="button" class="btn btn-primary" href="#" data-uri="/salon">Creer un salon</button>
+      <button type="button" class="btn btn-primary" href="#" data-uri="/salonModo">Creer un salon</button>
     </div>
     <br>
 
     <div id="jouer" class="flex-center">
-      <button type="button" class="btn btn-primary" href="#" data-uri="/salonModo">Jouer</button>
+      <button type="button" class="btn btn-primary">Prêt</button>    <!--TODO-->
     </div>
     <br>
 
@@ -42,12 +43,11 @@ let test=`
 </div>`;
 
 function HomePage() {
-  setPage();
-  await ok();
-    
+  setBasicPage();
+  setLinks();
 }
 
-async function setPage() {
+function setBasicPage() {
   document.title = 'Ze Question';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
@@ -55,11 +55,25 @@ async function setPage() {
   console.log("set page done");
 }
 
-function ok(){
-  const creerCompte = document.querySelector("#creerCompte")
-  creerCompte.addEventListener("click", () => {
+function setLinks(){
+  const creerCompte = document.querySelector("#connexion").getElementsByTagName("a");
+  creerCompte[0].addEventListener("click", () => {
     Redirect("/register");
   });
+
+  const newSalon = document.querySelector("#newSalon").getElementsByTagName("button");
+  newSalon[0].addEventListener("click", () => {
+    creerSalon();
+  });
+
+  console.log("setLinks done");
+}
+
+function creerSalon(){
+  if (!"user is not connected"){
+    console.log("veuillez vous connecter");
+  }
+  Redirect("/salonModo");
 }
   
-  export default HomePage;
+export default HomePage;
