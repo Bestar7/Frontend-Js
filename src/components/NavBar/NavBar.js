@@ -32,9 +32,6 @@ const Navbar = () => {
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/salon">Creer Salon</a>
               </li>                        
             </ul>
           </div>
