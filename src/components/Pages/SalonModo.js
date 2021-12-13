@@ -1,4 +1,3 @@
-import HomePage from "./HomePage";
 import { Redirect } from "../Router/Router";
 
 /**
@@ -48,8 +47,9 @@ let liste=``;
 
 
 
-function Salon() {
+function SalonModo() {
+  document.title = 'SalonAdmin';
   
 }
 
-export default Salon;
+export default SalonModo;

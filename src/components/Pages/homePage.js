@@ -39,6 +39,7 @@ let test=`
   </div>
 </div>`;
 function HomePage() {
+    document.title = 'Ze Question';
     // SET BASIC PAGE
     const pageDiv = document.querySelector("#page");
     pageDiv.innerHTML = test;
