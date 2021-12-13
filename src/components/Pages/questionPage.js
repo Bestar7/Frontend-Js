@@ -1,11 +1,5 @@
 import { Redirect } from "../Router/Router";
 
-function QuestionPage() {
-    document.title = 'Questions';
-    const pageDiv = document.querySelector("#page");
-    pageDiv.innerHTML = questions;
-}
-
 let questions=`
 <div class="container">
     <div class="quizz">
@@ -36,5 +30,26 @@ let questions=`
     </div>
 </div>
 `;
+
+function QuestionPage() {
+  setBasicPage();
+  setLinks();
+}
+  
+function setBasicPage() {
+  document.title = 'Questions';
+  // SET BASIC PAGE
+  const pageDiv = document.querySelector("#page");
+  pageDiv.innerHTML = formHTML;
+}
+  
+function setLinks(){
+  /*
+  const newSalon = document.querySelector("#form").getElementsByTagName("button");
+  newSalon[0].addEventListener("click", () => {
+    Redirect("/");
+  });
+  */
+}
 
 export default QuestionPage;
