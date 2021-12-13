@@ -16,7 +16,7 @@ const Navbar = () => {
   let navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#" data-uri="/">ZE QUESTION</a>
+          <a class="navbar-brand" href="#" data-uri="/">Ze Question</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <a class="nav-link" href="#" data-uri="/salon">Creer salon</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/salon">Questions</a>
+                <a class="nav-link" href="#" data-uri="/salon">Creer Salon</a>
               </li>                        
             </ul>
           </div>
