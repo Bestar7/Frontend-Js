@@ -1,4 +1,3 @@
-
 class Question {
     constructor(question,choices,answer){
         this.question = question;
@@ -30,7 +29,6 @@ let questions = [
         "Jupiler")
 
 ];
-console.log(questions);
 class Quizz{
     constructor(questions){
         this.questions = questions
@@ -56,5 +54,3 @@ class Quizz{
 
 // create quizz
 let quizz = new Quizz(questions)
-
-console.log(quizz);
