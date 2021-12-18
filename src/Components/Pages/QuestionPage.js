@@ -7,19 +7,19 @@ let questionHTML=
   <h2 id="question"></h2>
 
   <div class="choices">
-    <button type="button" id="answer01" class="btn btn-light">
+    <button type="button" id="answer0" class="btn btn-light">
     <p id="choice0"></p> 
     </button>
             
-    <button type="button" id="answer02" class="btn btn-light">
+    <button type="button" id="answer1" class="btn btn-light">
     <p id="choice1"></p> 
     </button>
             
-    <button type="button" id="answer03" class="btn btn-light">
+    <button type="button" id="answer2" class="btn btn-light">
     <p id="choice2"></p> 
     </button>
             
-    <button type="button" id="answer04" class="btn btn-light">
+    <button type="button" id="answer3" class="btn btn-light">
     <p id="choice3"></p>  
     </button>
   </div>
@@ -68,7 +68,7 @@ let questions = [
   new Question (
       "Quelle est mon fruit préférer ?",
       ["Orange","Mandarine","Orange Portugal","Orange Valencia"],
-      "Jupiler")
+      "Mandarine")
 
 ];
 console.log(questions);
@@ -84,15 +84,16 @@ class Quizz{
       return this.questions[this.currentQuestion];
   }
   guess(answer){
-      if (this.getCurrentQuestion().GoodAnswer){
-          score++;
+      if (this.getCurrentQuestion().GoodAnswer(answer)){
+          this.score++;
       }else{
-          afond++;
+          this.afond++;
       }
       this.currentQuestion++;
   }
   endQuizz(){
-      return this.currentQuestion >= questions.length;
+      return this.currentQuestion >= this.questions.length;
+      
   }
 
 }
@@ -116,7 +117,7 @@ let quizz = new Quizz(questions);
       
   },
   question : function(){
-    this.elementShown("question",quizz.getCurrentQuestion().question)
+    this.elementShown("question",quizz.getCurrentQuestion().question);
   },
   choices : function(){
     let choices = quizz.getCurrentQuestion().choices;
@@ -129,16 +130,19 @@ let quizz = new Quizz(questions);
     }
     for (let i = 0; i<choices.length; i++){
       this.elementShown("choice" + i, choices[i]);
+      guessHandler("answer" + i,choices[i])
     }
   }
 }
 
 //logic quizz
 const quizzApp = () => {
-  
+  if (quizz.endQuizz == true){
+    display.quizzEnded();
+  }else{
     display.question();
     display.choices();
-    
+  }
   
 }
 
