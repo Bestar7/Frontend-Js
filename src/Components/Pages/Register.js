@@ -54,7 +54,10 @@ function onRegister(form) {
   .then((response) => {
     if (!response.ok)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
-    setSession(user);
+    else{
+      setSession(user);
+      Redirect("/");
+    }
     return response.json();
   });
 };
