@@ -2,13 +2,7 @@ import { Redirect } from "../Router/Router.js";
 
 let idSalon;
 let checkboxes = "";
-const themesDebutHTML = 
-`<div id="themes">
-<form>
-  <legend>Quels thématiques voulez-vous ?</legend>`;
-const themesFinHTML = 
-`</form>
-</div>`;
+
 const formHTML = 
 `<div id="form">
   <form>
@@ -18,12 +12,20 @@ const formHTML =
     <button type="button" class="btn btn-primary" href="#" data-uri="/">Annuler</button>
   </form>
 </div>`;
+const codeHTML = `<h2 id="id"></h2>`;
+const themesDebutHTML = 
+`<div id="themes">
+<form>
+  <legend>Quels thématiques voulez-vous ?</legend>`;
+const themesFinHTML = 
+`</form>
+</div>`;
 
 function SalonModo() {
-  creerCodeSalon();
-  creerTheme();
   setBasicPage();
   setLinks();
+  creerCodeSalon();
+  creerTheme();
 }
 
 function creerCodeSalon(){
@@ -37,6 +39,8 @@ function creerCodeSalon(){
   .then((response) => {
     if (!response.ok)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
+    idSalon = response.json().id;
+    document.getElementById("id").innerText = "Code du salon : "+idSalon;
     return response.json();
   });
 }
@@ -50,7 +54,7 @@ function creerTheme(){
     },
   })
   .then((response) => {
-    if (!response.ok)
+    if (response.status != 200)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
     let themes = response.json().themes;
     for (i=0; i<themes.length ; i++){
@@ -69,7 +73,7 @@ function setBasicPage() {
   document.title = 'Salon Administrateur';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
-  pageDiv.innerHTML = formHTML+themesDebutHTML+checkboxes+themesFinHTML;
+  pageDiv.innerHTML = formHTML+codeHTML+themesDebutHTML+checkboxes+themesFinHTML;
 }
 
 function setLinks(){

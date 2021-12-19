@@ -52,7 +52,7 @@ function onRegister(form) {
     },
   })
   .then((response) => {
-    if (!response.ok)
+    if (response.status != 200)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
     else{
       setSession(user);

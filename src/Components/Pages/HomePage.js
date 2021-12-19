@@ -93,7 +93,7 @@ function onJoinSalon(form){
     },
   })
   .then((response) => {
-    if (!response.ok)
+    if (response.status != 200)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
       else Redirect("/questionPage");
     return response.json();
@@ -116,7 +116,7 @@ function onLogin(form) {
     },
   })
   .then((response) => {
-    if (!response.ok)
+    if (response.status != 200)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
     return response.json();
   });
