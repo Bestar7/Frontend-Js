@@ -1,3 +1,5 @@
+import Navbar from "../NavBar/NavBar.js";
+
 function getSession () {
   let user = localStorage.getItem("user");
   if (user == null)
@@ -7,6 +9,12 @@ function getSession () {
 
 function setSession (user) {
   localStorage.setItem("user", JSON.stringify(user));
+  Navbar();
 };
 
-export { setSession, getSession };
+function resetSession(){
+  localStorage.removeItem("user");
+  Navbar();
+}
+
+export { setSession, getSession, resetSession };
