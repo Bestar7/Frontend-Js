@@ -42,7 +42,7 @@ const Navbar = () => {
   </div>`;
   let profile = 
     `<button type="button" id="user" class="btn btn-primary">
-      `+getSession().username+` 
+      `+getSession().email+` 
     </button>
     <button type="button" id="deconnexion" class="btn btn-primary">
       Log Out
