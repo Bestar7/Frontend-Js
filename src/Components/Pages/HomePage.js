@@ -1,5 +1,7 @@
 import { Redirect } from "../Router/Router.js";
 import { getSession, setSession } from "../Utils/Session.js";
+import { hashSync } from "bcryptjs";
+let salt = 10;
 
 const connexionHTML = 
 `<div id="connexion">
@@ -106,7 +108,7 @@ function onLogin(form) {
   let username = form.querySelector('[name="email"]').value;
   let password = form.querySelector('[name="password"]').value;
 
-  let user = {email:username, password:password};
+  let user = {email:username, password:hashSync(password, salt)};
 
   setSession(user);
 
