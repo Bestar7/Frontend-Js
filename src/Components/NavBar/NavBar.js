@@ -62,7 +62,6 @@ const Navbar = () => {
 
     const user = document.querySelector("#user");
     user.addEventListener("click", () => {
-      resetSession();
       //Redirect("/profile"); // attention, cela ne refresh pas la navBar
     });
   }
