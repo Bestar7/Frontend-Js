@@ -39,34 +39,40 @@ function setBasicPage() {
   if (!getSession())
     pageDiv.innerHTML = connexionHTML;
   else
-    pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML;
+    pageDiv.innerHTML = joinSalonHTML + newSalonHTML;
 }
 
 function setLinks(){
   //connexionHTML
-  const connexion = document.querySelector("#connexion").getElementsByTagName("form")[0];
-  connexion.addEventListener("submit", (f) => {
-    f.preventDefault();
-    onLogin(connexion);
-  });
-
-  const creerCompte = document.querySelector("#connexion").getElementsByTagName("a")[0];
-  creerCompte.addEventListener("click", () => {
-    Redirect("/register");
-  });
+  if (document.querySelector("#connexion")!=null){
+    const connexion = document.querySelector("#connexion").getElementsByTagName("form")[0];
+    connexion.addEventListener("submit", (f) => {
+      f.preventDefault();
+      onLogin(connexion);
+    });
+  
+    const creerCompte = document.querySelector("#connexion").getElementsByTagName("a")[0];
+    creerCompte.addEventListener("click", () => {
+      Redirect("/register");
+    });
+  }
   
   //joinSalonHTML
-  const joinSalon = document.querySelector("#joinSalon").getElementsByTagName("form")[0];
-  joinSalon.addEventListener("submit", (f) => {
-    f.preventDefault();
-    onJoinSalon(joinSalon);
-  });
+  if (document.querySelector("#joinSalon")!=null){
+    const joinSalon = document.querySelector("#joinSalon").getElementsByTagName("form")[0];
+    joinSalon.addEventListener("submit", (f) => {
+      f.preventDefault();
+      onJoinSalon(joinSalon);
+    });
+  }
 
   //newSalonHTML
-  const newSalon = document.querySelector("#newSalon").getElementsByTagName("button")[0];
-  newSalon.addEventListener("click", () => {
-    creerSalon();
-  });
+  if (document.querySelector("#newSalon")!=null){
+    const newSalon = document.querySelector("#newSalon").getElementsByTagName("button")[0];
+    newSalon.addEventListener("click", () => {
+      creerSalon();
+    });
+  }
 }
 
 function creerSalon(){
@@ -77,7 +83,7 @@ function creerSalon(){
 }
 
 function onJoinSalon(form){
-  let codeSalon = form.querySelector('[name="codeSalon"]').value;
+  let codeSalon = {code:form.querySelector('[name="codeSalon"]').value};
 
   fetch("/api/salons/addplayer/"+getSession().username+"/"+codeSalon, { // TODO
     method: "POST",
