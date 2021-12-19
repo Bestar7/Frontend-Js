@@ -19,16 +19,17 @@ function SalonModo() {
 }
 
 function creerCodeSalon(){
-  fetch("/api/salons/", { // TODO
+  fetch("/api/salons/", {
     method: "POST",
-    body: null, // TODO
+    body: null,
     headers: {
       "Content-Type": "application/json",
     },
   })
   .then((response) => {
-    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
-      return response.json();
+    if (!response.ok)
+      throw new Error("Error code : " + response.status + " : " + response.statusText);
+    return response.json();
   });
 }
 

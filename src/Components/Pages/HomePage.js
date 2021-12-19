@@ -79,7 +79,7 @@ function creerSalon(){
 function onJoinSalon(form){
   let codeSalon = form.querySelector('[name="codeSalon"]').value;
 
-  fetch("/api/salons/addplayer/"+getSession()+"/"+codeSalon, { // TODO
+  fetch("/api/salons/addplayer/"+getSession().username+"/"+codeSalon, { // TODO
     method: "POST",
     body: JSON.stringify(codeSalon),
     headers: {
@@ -87,8 +87,9 @@ function onJoinSalon(form){
     },
   })
   .then((response) => {
-    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
-      return response.json();
+    if (!response.ok)
+      throw new Error("Error code : " + response.status + " : " + response.statusText);
+    return response.json();
   });
 }
 
@@ -100,7 +101,7 @@ function onLogin(form) {
 
   setSession(user);
 
-  fetch("/api/users/register/"+username, {
+  fetch("/api/users/login", {
     method: "POST",
     body: JSON.stringify(user),
     headers: {
@@ -108,8 +109,9 @@ function onLogin(form) {
     },
   })
   .then((response) => {
-    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
-      return response.json();
+    if (!response.ok)
+      throw new Error("Error code : " + response.status + " : " + response.statusText);
+    return response.json();
   });
 };
 
