@@ -59,6 +59,8 @@ function onRegister(form) {
       Redirect("/");
     }
     return response.json();
+  }).catch((response) =>{
+    console.log("Error code : " + response.status + " : " + response.statusText);
   });
 };
 

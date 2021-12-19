@@ -97,6 +97,8 @@ function onJoinSalon(form){
       throw new Error("Error code : " + response.status + " : " + response.statusText);
       else Redirect("/questionPage");
     return response.json();
+  }).catch((response) =>{
+    console.log("Error code : " + response.status + " : " + response.statusText);
   });
 }
 
@@ -119,6 +121,8 @@ function onLogin(form) {
     if (response.status != 200)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
     return response.json();
+  }).catch((response) =>{
+    console.log("Error code : " + response.status + " : " + response.statusText);
   });
 };
 

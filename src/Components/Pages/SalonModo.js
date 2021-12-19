@@ -39,9 +39,12 @@ function creerCodeSalon(){
   .then((response) => {
     if (!response.ok)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
-    idSalon = response.json().id;
+    let resp = response.json();
+    idSalon = resp.id;
     document.getElementById("id").innerText = "Code du salon : "+idSalon;
-    return response.json();
+    return resp;
+  }).catch((response) =>{
+    console.log("Error code : " + response.status + " : " + response.statusText);
   });
 }
 
@@ -54,16 +57,19 @@ function creerTheme(){
     },
   })
   .then((response) => {
-    if (response.status != 200)
+    if (!response.ok)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
-    let themes = response.json().themes;
+    let resp = response.json();
+    let themes = resp.themes;
     for (i=0; i<themes.length ; i++){
       checkboxes += 
       `<input class="form-check-input" type="checkbox" id="theme`+i+`">
       <label class="form-check-label" for="theme`+i+`">`+themes[i]+`</label>`
     }
     
-    return response.json();
+    return resp;
+  }).catch((response) =>{
+    console.log("Error code : " + response.status + " : " + response.statusText);
   });
 
   
