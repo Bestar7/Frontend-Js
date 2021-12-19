@@ -41,9 +41,9 @@ const Navbar = () => {
     </ul>
   </div>`;
   let profile = 
-    `<span class="navbar-text">
+    `<button type="button" id="user" class="btn btn-primary">
       `+getSession().username+` 
-    </span>
+    </button>
     <button type="button" id="deconnexion" class="btn btn-primary">
       Log Out
     </button>`;
@@ -53,10 +53,17 @@ const Navbar = () => {
     navbarWrapper.innerHTML = debut+brand+items+fin;
   else {
     navbarWrapper.innerHTML = debut+brand+items+profile+fin;
+
     const deconnexion = document.querySelector("#deconnexion");
     deconnexion.addEventListener("click", () => {
       resetSession();
       Redirect("/"); // attention, cela ne refresh pas la navBar
+    });
+
+    const user = document.querySelector("#user");
+    user.addEventListener("click", () => {
+      resetSession();
+      //Redirect("/profile"); // attention, cela ne refresh pas la navBar
     });
   }
 };
