@@ -106,7 +106,7 @@ function onLogin(form) {
   let username = form.querySelector('[name="email"]').value;
   let password = form.querySelector('[name="password"]').value;
 
-  let user = {username:username, password:password};
+  let user = {email:username, password:password};
 
   setSession(user);
 
