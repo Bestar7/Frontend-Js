@@ -95,6 +95,7 @@ function onJoinSalon(form){
   .then((response) => {
     if (!response.ok)
       throw new Error("Error code : " + response.status + " : " + response.statusText);
+      else Redirect("/QuestionPage");
     return response.json();
   });
 }
