@@ -29,7 +29,7 @@ function SalonModo() {
 }
 
 function creerCodeSalon(){
-  fetch("/api/salons/", {
+  fetch("/api/salons", {
     method: "POST",
     body: null,
     headers: {
