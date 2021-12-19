@@ -3,7 +3,8 @@
 // Here, because our JS component 'Navbar' has the same name as Navbar Bootstrap's component
 // we change the name of the imported Bootstrap's 'Navbar' component
 import { Navbar as BootstrapNavbar} from "bootstrap";
-import { getSession } from "../Utils/Session.js";
+import { Redirect } from "../Router/Router.js";
+import { getSession, resetSession } from "../Utils/Session.js";
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -40,15 +41,24 @@ const Navbar = () => {
     </ul>
   </div>`;
   let profile = 
-  `<span class="navbar-text">
-    `+getSession().username+`
-  </span>`;
+    `<span class="navbar-text">
+      `+getSession().username+` 
+    </span>
+    <button type="button" id="deconnexion" class="btn btn-primary">
+      Log Out
+    </button>`;
 
 
   if (!getSession())
     navbarWrapper.innerHTML = debut+brand+items+fin;
-  else
+  else {
     navbarWrapper.innerHTML = debut+brand+items+profile+fin;
+    const deconnexion = document.querySelector("#deconnexion");
+    deconnexion.addEventListener("click", () => {
+      resetSession();
+      Redirect("/"); // attention, cela ne refresh pas la navBar
+    });
+  }
 };
 
 export default Navbar;
