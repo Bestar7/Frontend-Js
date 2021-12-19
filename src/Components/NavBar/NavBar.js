@@ -3,6 +3,7 @@
 // Here, because our JS component 'Navbar' has the same name as Navbar Bootstrap's component
 // we change the name of the imported Bootstrap's 'Navbar' component
 import { Navbar as BootstrapNavbar} from "bootstrap";
+import { getSession } from "../Utils/Session.js";
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -13,35 +14,41 @@ import { Navbar as BootstrapNavbar} from "bootstrap";
 
 const Navbar = () => {
   const navbarWrapper = document.querySelector("#navbarWrapper");
-  let navbar = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#" data-uri="/">Ze Question</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/salon">Creer Salon</a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/questionPage">Questions</a>
-            </li>                            
-            </ul>
-          </div>
-        </div>
-      </nav>
-  `;  
-  navbarWrapper.innerHTML = navbar;
+  
+  let debut = 
+  `<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">`;
+  let fin = 
+  ` </div>
+  </nav>`;
+
+  let brand = 
+  `<a class="navbar-brand" href="#" data-uri="/">Ze Question</a>`;
+
+  let item1 = 
+  `<li class="nav-item">
+    <a class="nav-link" href="#" data-uri="/salon">Creer Salon</a>
+  </li>`;
+  let item2 = 
+  `<li class="nav-item">
+    <a class="nav-link" href="#" data-uri="/questionPage">Questions</a>
+  </li>`;
+  let items = 
+  `<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      `+item1+item2+`                          
+    </ul>
+  </div>`;
+  let profile = 
+  `<span class="navbar-text">
+    `+getSession().username+`
+  </span>`;
+
+
+  if (!getSession())
+    navbarWrapper.innerHTML = debut+brand+items+fin;
+  else
+    navbarWrapper.innerHTML = debut+brand+items+profile+fin;
 };
 
 export default Navbar;
