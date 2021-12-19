@@ -1,4 +1,5 @@
 import { Redirect } from "../Router/Router.js";
+import { setSession } from "../Utils/Session.js";
 
 const createAccountHTML = 
 `<div id="createAccount">
@@ -26,7 +27,7 @@ function setLinks(){
   const createAccount = document.querySelector("#createAccount").getElementsByTagName("form")[0];
   createAccount.addEventListener("submit", (f) => {
     f.preventDefault();
-    console.log("createAccount");
+    onRegister(createAccount);
   });
 
   const annuler = document.querySelector("#createAccount").getElementsByTagName("button")[0];
@@ -37,28 +38,25 @@ function setLinks(){
 
 
 
-////  TODO UTILISER ET VERIFIER CECI
-let username = "";
-let password = "";
-const onRegister = (e) => {
-    e.preventDefault();
-    let user = {
-        username: document.getElementById("name").value,
-    };
-   // console.log("User : "+user.username);
-    fetch("/api/users/chat", {
-        method: "POST",
-        body: JSON.stringify(user), // body data type must match "Content-Type" header
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then((response) => {
-            if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
-            return response.json();
-        })
-        .then((data) => onUserRegistration(data))
-        .catch((err) => onError(err));
+function onRegister(form) {
+  let username = form.querySelector('[name="email"]').value;
+  let password = form.querySelector('[name="password"]').value;
+
+  let user = {username:username, password:password};
+
+  fetch("/api/users/register/", {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((response) => {
+    if (!response.ok)
+      throw new Error("Error code : " + response.status + " : " + response.statusText);
+    setSession(user);
+    return response.json();
+  });
 };
 
 export default Register;

@@ -1,4 +1,5 @@
 import { Redirect } from "../Router/Router.js";
+import { getSession, setSession } from "../Utils/Session.js";
 
 const connexionHTML = 
 `<div id="connexion">
@@ -35,7 +36,10 @@ function setBasicPage() {
   document.title = 'Ze Question';
   // SET BASIC PAGE
   const pageDiv = document.querySelector("#page");
-  pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML;
+  if (!getSession())
+    pageDiv.innerHTML = connexionHTML;
+  else
+    pageDiv.innerHTML = connexionHTML + joinSalonHTML + newSalonHTML;
 }
 
 function setLinks(){
@@ -43,7 +47,7 @@ function setLinks(){
   const connexion = document.querySelector("#connexion").getElementsByTagName("form")[0];
   connexion.addEventListener("submit", (f) => {
     f.preventDefault();
-    console.log("connexion");
+    onLogin(connexion);
   });
 
   const creerCompte = document.querySelector("#connexion").getElementsByTagName("a")[0];
@@ -55,7 +59,7 @@ function setLinks(){
   const joinSalon = document.querySelector("#joinSalon").getElementsByTagName("form")[0];
   joinSalon.addEventListener("submit", (f) => {
     f.preventDefault();
-    console.log("joinSalon");
+    onJoinSalon(joinSalon);
   });
 
   //newSalonHTML
@@ -66,10 +70,47 @@ function setLinks(){
 }
 
 function creerSalon(){
-  if (!"user is not connected"){
+  if (!"user is not connected"){ //TODO
     console.log("veuillez vous connecter");
   }
   Redirect("/salonModo");
 }
+
+function onJoinSalon(form){
+  let codeSalon = form.querySelector('[name="codeSalon"]').value;
+
+  fetch("/api/salons/addplayer/"+getSession()+"/"+codeSalon, { // TODO
+    method: "POST",
+    body: JSON.stringify(codeSalon),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((response) => {
+    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+      return response.json();
+  });
+}
+
+function onLogin(form) {
+  let username = form.querySelector('[name="email"]').value;
+  let password = form.querySelector('[name="password"]').value;
+
+  let user = {username:username, password:password};
+
+  setSession(user);
+
+  fetch("/api/users/register/"+username, {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((response) => {
+    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+      return response.json();
+  });
+};
 
 export default HomePage;

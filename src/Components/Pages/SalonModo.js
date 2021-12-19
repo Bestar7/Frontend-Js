@@ -13,8 +13,23 @@ const formHTML =
 </div>`;
 
 function SalonModo() {
+  creerCodeSalon();
   setBasicPage();
   setLinks();
+}
+
+function creerCodeSalon(){
+  fetch("/api/salons/", { // TODO
+    method: "POST",
+    body: null, // TODO
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((response) => {
+    if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+      return response.json();
+  });
 }
 
 function setBasicPage() {
