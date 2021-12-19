@@ -3,8 +3,8 @@ import { Redirect } from "../Router/Router.js";
 const createAccountHTML = 
 `<div id="createAccount">
   <form>
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Mot de passe">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
     <input type="submit" class="btn btn-primary" value="Prêt">
     <button type="button" class="btn btn-primary" href="#" data-uri="/">Annuler</button>
   </form>

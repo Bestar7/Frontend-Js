@@ -3,8 +3,8 @@ import { Redirect } from "../Router/Router.js";
 const connexionHTML = 
 `<div id="connexion">
   <form>
-    <input type="email" placeholder="email" name="email" type="text"/>
-    <input type="password" placeholder="Mot de passe" name="password"/>
+    <input type="email" placeholder="email" name="email" type="text" required/>
+    <input type="password" placeholder="Mot de passe" name="password" required/>
     <input type="submit" class="btn btn-primary" value="Se connecter"></input>    <!--TODO-->
     <a class="btn btn-primary" data-uri="/register">Creer une compte</a>
   </form>
@@ -14,7 +14,7 @@ const connexionHTML =
 const joinSalonHTML = 
 `<div id="joinSalon">
   <form>
-    <input type="text" placeholder="code salon" name="codeSalon"/>
+    <input type="text" placeholder="code salon" name="codeSalon" required/>
     <input type="submit" class="btn btn-primary" value="Joindre salon">    <!--TODO-->
   </form>
 </div>
