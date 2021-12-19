@@ -45,7 +45,7 @@ function setLinks(){
   pret.addEventListener("submit", (f) => {
     f.preventDefault();
     console.log("pret");
-    Redirect("/QuestionPage");
+    Redirect("/questionPage");
   });
   
   const annuler = document.querySelector("#form").getElementsByTagName("button")[0];
